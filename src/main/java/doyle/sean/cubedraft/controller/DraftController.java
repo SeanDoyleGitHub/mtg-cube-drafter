@@ -30,6 +30,13 @@ public class DraftController {
         return draftService.createDraft(cubeId, draftId);
     }
 
+    @PutMapping("/draft/start")
+    @ResponseStatus(HttpStatus.OK)
+    public Draft startDraft(@RequestBody Map<String, String> json){
+        String draftId = json.get("draftId");
+        return draftService.startDraft(draftId);
+    }
+
     @PostMapping("/draft/join")
     @ResponseStatus(HttpStatus.OK)
     public Player joinDraft(@RequestBody Map<String, String> json) {
