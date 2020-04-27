@@ -11,12 +11,20 @@ These should be a 2 part project, the backend where you are currently reading th
 ``
 curl localhost:8080/draft/new \
 --header "Content-Type: application/json" \
---data '{"draftId":"HelloWorldDraft", "cubeId":"4xl"}'
+--data '{"draftId":"HelloWorldDraft", "cubeId":"4xl"}' -s
 ``
 
 #### Join a draft:  
 ``
 curl localhost:8080/draft/join \
 --header "Content-Type: application/json" \
---data '{"draftId":"HelloWorldDraft", "playerName":"Test_Player_1"}'
+--data '{"draftId":"HelloWorldDraft", "playerName":"Test_Player_1"}' -s
+``
+
+
+#### Start a draft: 
+``
+curl localhost:8080/draft/start -X PUT \
+--header "Content-Type: application/json" \
+--data '{"draftId":"HelloWorldDraft"}' -s
 ``
