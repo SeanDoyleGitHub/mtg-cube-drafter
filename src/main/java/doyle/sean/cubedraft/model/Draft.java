@@ -2,6 +2,7 @@ package doyle.sean.cubedraft.model;
 
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -10,7 +11,7 @@ import java.util.List;
 public class Draft {
 
     @NonNull private Cube cube;
-    private List<Player> players;
-    private List<BoosterPack> boosterPacks;
+    private List<Player> players = new ArrayList<>();
+    private List<BoosterPack> boosterPacks = new ArrayList<>();
 
 }

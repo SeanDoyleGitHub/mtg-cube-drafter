@@ -5,6 +5,7 @@ import doyle.sean.cubedraft.model.Player;
 import doyle.sean.cubedraft.service.DraftService;
 
 import java.util.Collection;
+import java.util.Map;
 
 import doyle.sean.cubedraft.service.PlayerService;
 import org.springframework.http.HttpStatus;
@@ -21,19 +22,23 @@ public class DraftController {
         this.playerService = playerService;
     }
 
-    @PostMapping("/draft/start")
+    @PostMapping("/draft/new")
     @ResponseStatus(HttpStatus.OK)
-    public Draft createNewDraft(@RequestBody String cubeId, @RequestBody String draftId) {
+    public Draft createNewDraft(@RequestBody Map<String, String> json) {
+        String cubeId = json.get("cubeId");
+        String draftId = json.get("draftId");
         return draftService.createDraft(cubeId, draftId);
     }
 
     @PostMapping("/draft/join")
     @ResponseStatus(HttpStatus.OK)
-    public Player joinDraft(@RequestBody String playerName, @RequestBody String draftId) {
+    public Player joinDraft(@RequestBody Map<String, String> json) {
+        String draftId = json.get("draftId");
+        String playerName = json.get("playerName");
         return playerService.createPlayer(playerName, draftId);
     }
 
-    @GetMapping("/draft")
+    @GetMapping("/draft/all")
     public Collection<Draft> getAllDrafts(){
         return draftService.getAllDrafts();
     }
