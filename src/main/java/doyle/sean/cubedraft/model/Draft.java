@@ -1,11 +1,12 @@
 package doyle.sean.cubedraft.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -13,7 +14,7 @@ import java.util.Set;
 public class Draft {
 
     @NonNull private Cube cube;
-    private List<Player> players = new ArrayList<>();
-    private Set<BoosterPack> boosterPacks = new HashSet<>();
+    private Map<String, Player> players = new HashMap<>();
+    private Map<String, BoosterPack> boosterPacks = new HashMap<>();
 
 }
