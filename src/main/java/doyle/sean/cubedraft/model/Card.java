@@ -1,6 +1,9 @@
 package doyle.sean.cubedraft.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -8,6 +11,5 @@ import lombok.*;
 public class Card {
 
     @NonNull private String cardName;
-    private boolean isDrafted = false;
 
 }

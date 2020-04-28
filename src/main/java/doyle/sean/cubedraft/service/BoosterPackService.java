@@ -6,14 +6,14 @@ import doyle.sean.cubedraft.model.Cube;
 import doyle.sean.cubedraft.model.Draft;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
 
 @Service
 public class BoosterPackService {
 
-    public Set<BoosterPack> createBoostersForDraft(Draft draft) {
+    public HashMap<String, BoosterPack> createBoostersForDraft(Draft draft) {
         int playerTotal = draft.getPlayers().size();
         int boosterPackSize = 15;
         int boostersRequired = 3 * playerTotal;
@@ -38,17 +38,17 @@ public class BoosterPackService {
         return cardsToDraftFrom;
     }
 
-    private Set<BoosterPack> createBoostersFromCards(HashSet<Card> cards, int boostersRequired, int boosterPackSize){
-        Set<BoosterPack> boosterPacks = new HashSet<>();
+    private HashMap<String, BoosterPack> createBoostersFromCards(HashSet<Card> cards, int boostersRequired, int boosterPackSize){
+        HashMap<String, BoosterPack> boosterPacks = new HashMap<>();
 
         for (int currentPack = 0; currentPack < boostersRequired; currentPack++) {
             BoosterPack boosterPack = new BoosterPack();
             for(int cardCount = 0; cardCount < boosterPackSize; cardCount++){
                 Card card = cards.iterator().next();
-                boosterPack.getCards().add(card);
+                boosterPack.getCards().put(card.getCardName(), card);
                 cards.remove(card);
             }
-            boosterPacks.add(boosterPack);
+            boosterPacks.put(String.valueOf(currentPack), boosterPack);
         }
 
         return boosterPacks;

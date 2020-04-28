@@ -1,6 +1,8 @@
 package doyle.sean.cubedraft.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 

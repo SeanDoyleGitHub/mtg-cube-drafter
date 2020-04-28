@@ -1,7 +1,11 @@
 package doyle.sean.cubedraft.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -9,8 +13,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Player {
 
-    @NonNull private int id;
+    @NonNull private String id;
     @NonNull private String name;
-    private List<String> cards;
+    private List<Card> cards = new ArrayList<>();
 
 }

@@ -7,14 +7,14 @@ Having scoured the internet I have found plenty of ways to upload a cube list, b
 
 These should be a 2 part project, the backend where you are currently reading this from, and a frontend UI for users to avail of.
 
-#### Create a draft:  
+###### Create a draft:  
 ``
 curl localhost:8080/draft/new \
 --header "Content-Type: application/json" \
 --data '{"draftId":"HelloWorldDraft", "cubeId":"4xl"}' -s
 ``
 
-#### Join a draft:  
+###### Join a draft:  
 ``
 curl localhost:8080/draft/join \
 --header "Content-Type: application/json" \
@@ -22,9 +22,50 @@ curl localhost:8080/draft/join \
 ``
 
 
-#### Start a draft: 
+###### Start a draft: 
 ``
 curl localhost:8080/draft/start -X PUT \
 --header "Content-Type: application/json" \
 --data '{"draftId":"HelloWorldDraft"}' -s
+``
+
+###### Draft a card for a specific player:
+``
+curl localhost:8080/player/draft/card -X PUT \
+--header "Content-Type: application/json" \
+--data '{"draftId":"HelloWorldDraft", "playerId":"0", "boosterPackId":"2", "cardName":"INSERT_CARD_NAME_HERE"}' -s
+``
+
+###### Get all drafts:
+``
+curl localhost:8080/drafts -s
+``
+
+###### Get a draft:
+/draft/{id}  eg:  
+``
+curl localhost:8080/draft/HelloWorldDraft -s
+``
+
+
+###### Get all players from a draft:
+``
+curl localhost:8080/draft/HelloWorldDraft/players -s
+``
+
+###### Get a player from a draft:
+/draft/{id}/player/{id}  eg:  
+``
+curl localhost:8080/draft/HelloWorldDraft/player/0 -s
+``
+
+###### Get all booster packs from a draft:
+``
+curl localhost:8080/draft/HelloWorldDraft/boosterPacks -s
+``
+
+###### Get booster pack from a draft:
+/draft/{id}/boosterPack/{id}  eg:  
+``
+curl localhost:8080/draft/HelloWorldDraft/boosterPack/0 -s
 ``
