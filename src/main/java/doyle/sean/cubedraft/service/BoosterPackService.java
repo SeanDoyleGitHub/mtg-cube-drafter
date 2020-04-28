@@ -27,13 +27,17 @@ public class BoosterPackService {
 
     private HashSet<Card> createCardPoolForBoosters(Cube cubeToDraftFrom, int totalCardsRequiredForDraft){
         Random rng = new Random();
-        int cubeSize = cubeToDraftFrom.getCards().size();
         HashSet<Card> cardsToDraftFrom = new HashSet<>();
 
-        do {
-            Card card = cubeToDraftFrom.getCards().get(rng.nextInt(cubeSize-1));
+        while (cardsToDraftFrom.size() < totalCardsRequiredForDraft) {
+            int cubeSize = cubeToDraftFrom.getCards().size();
+            int randomCardNumber = rng.nextInt(cubeSize);
+
+            Card card = cubeToDraftFrom.getCards().get(randomCardNumber);
+
             cardsToDraftFrom.add(card);
-        } while (cardsToDraftFrom.size() < totalCardsRequiredForDraft);
+            cubeToDraftFrom.getCards().remove(randomCardNumber);
+        }
 
         return cardsToDraftFrom;
     }
