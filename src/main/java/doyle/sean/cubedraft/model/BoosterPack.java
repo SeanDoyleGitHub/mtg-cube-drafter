@@ -11,7 +11,5 @@ import java.util.Map;
 @Setter
 @NoArgsConstructor
 public class BoosterPack {
-
     private Map<String, Card> cards = new HashMap<>();
-
 }

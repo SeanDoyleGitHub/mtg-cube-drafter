@@ -49,7 +49,7 @@ public class BoosterPackService {
             BoosterPack boosterPack = new BoosterPack();
             for(int cardCount = 0; cardCount < boosterPackSize; cardCount++){
                 Card card = cards.iterator().next();
-                boosterPack.getCards().put(card.getCardName(), card);
+                boosterPack.getCards().put(card.getName(), card);
                 cards.remove(card);
             }
             boosterPacks.put(String.valueOf(currentPack), boosterPack);
