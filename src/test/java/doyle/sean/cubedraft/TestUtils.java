@@ -33,7 +33,7 @@ public class TestUtils {
     private List<Card> createMockListOfCards(int cubeSize) {
         List<Card> cards = new ArrayList<>();
         for(int i = 0; i < cubeSize; i++){
-            Card card = new Card("fakeCard_" + i);
+            Card card = new Card("fakeCard_" + i, "10", "unicorn");
             cards.add(card);
         }
 

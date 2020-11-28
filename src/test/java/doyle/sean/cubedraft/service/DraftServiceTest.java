@@ -84,13 +84,13 @@ class DraftServiceTest {
         Card cardToDraft = (Card) cards.values().toArray()[0];
 
         //when
-        sut.draftCard("testDraft", "0", "0", cardToDraft.getCardName());
+        sut.draftCard("testDraft", "0", "0", cardToDraft.getName());
 
         //then
         List<Card> expectedPlayerCards = sut.getDraft("testDraft").getPlayers().get("0").getCards();
             //player has correct card
         assertEquals(expectedPlayerCards.size(), 1);
-        assertEquals(expectedPlayerCards.get(0).getCardName(), cardToDraft.getCardName());
+        assertEquals(expectedPlayerCards.get(0).getName(), cardToDraft.getName());
 
             //booster pack no longer has card
         assertFalse(draft.getBoosterPacks().get("0").getCards().containsValue(cardToDraft));
